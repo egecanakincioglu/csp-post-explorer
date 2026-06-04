@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import PostCard from "./components/PostCard";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -31,12 +32,7 @@ function App() {
       <div style={{ maxWidth: "600px", margin: "0 auto", padding: "24px" }}>
         <h1>Post Explorer</h1>
         {posts.map((post) => (
-          <div key={post.id} style={{ border: "1px solid #ccc", padding: "16px", marginBottom: "12px", borderRadius: "8px" }}>
-            <p><strong>ID:</strong> {post.id}</p>
-            <p><strong>User ID:</strong> {post.userId}</p>
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-          </div>
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </>
